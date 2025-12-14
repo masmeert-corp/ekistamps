@@ -1,9 +1,4 @@
-import {
-	ArrowUpRightIcon,
-	SquareArrowUpRightIcon,
-	TrendingDownIcon,
-	TrendingUpIcon,
-} from "lucide-react";
+import { ArrowUpRightIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
 	Card,
