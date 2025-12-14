@@ -7,6 +7,8 @@ import {
 	PlusCircleIcon,
 	Settings2Icon,
 	StampIcon,
+	TrainFrontIcon,
+	TrainTrackIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -100,8 +102,8 @@ export function AdminSidebar({
 							className="data-[slot=sidebar-menu-button]:p-1.5!"
 						>
 							<a href="/">
-								<BubblesIcon className="size-5!" />
-								<span className="font-semibold text-base">Acme Inc.</span>
+								<TrainTrackIcon className="size-5!" />
+								<span className="font-semibold text-base">Ekistamps</span>
 							</a>
 						</SidebarMenuButton>
 					</SidebarMenuItem>
