@@ -14,18 +14,7 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 
 export function AdminHeader() {
 	const pathname = usePathname();
-
-	let title = "Dashboard";
-	switch (pathname) {
-		case "/admin/stamps":
-			title = "Stamps";
-			break;
-		case "/admin/reports":
-			title = "Reports";
-			break;
-		default:
-			break;
-	}
+	const title = pathname === "/admin/reports" ? "Reports" : "Stamps";
 
 	return (
 		<header className="flex h-(--header-height) shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height)">
@@ -40,14 +29,12 @@ export function AdminHeader() {
 						<BreadcrumbItem>
 							<BreadcrumbLink href="/admin">Admin</BreadcrumbLink>
 						</BreadcrumbItem>
-						{title !== "Dashboard" && (
-							<>
-								<BreadcrumbSeparator />
-								<BreadcrumbItem>
-									<BreadcrumbLink href="/components">{title}</BreadcrumbLink>
-								</BreadcrumbItem>
-							</>
-						)}
+						<BreadcrumbSeparator />
+						<BreadcrumbItem>
+							<BreadcrumbLink className="text-black" href="/components">
+								{title}
+							</BreadcrumbLink>
+						</BreadcrumbItem>
 					</BreadcrumbList>
 				</Breadcrumb>
 			</div>

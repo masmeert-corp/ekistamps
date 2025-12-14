@@ -32,13 +32,8 @@ type AdminSidebarNavigationItem = {
 
 const SIDEBAR_NAVIGATION_ITEMS: AdminSidebarNavigationItem[] = [
 	{
-		title: "Dashboard",
-		url: "/admin",
-		icon: Settings2Icon,
-	},
-	{
 		title: "Stamps",
-		url: "/admin/stamps",
+		url: "/admin",
 		icon: StampIcon,
 	},
 	{
@@ -67,14 +62,6 @@ function AdminSidebarContent({
 							<PlusCircleIcon />
 							<span>Quick Create</span>
 						</SidebarMenuButton>
-						<Button
-							className="size-8 group-data-[collapsible=icon]:opacity-0"
-							size="icon"
-							variant="outline"
-						>
-							<StampIcon />
-							<span className="sr-only">Stamps</span>
-						</Button>
 					</SidebarMenuItem>
 				</SidebarMenu>
 				<SidebarMenu>
