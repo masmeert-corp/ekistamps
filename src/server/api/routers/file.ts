@@ -1,4 +1,6 @@
 import z from "zod";
+
+import { getUploadUrl } from "@/server/s3/utils";
 import { adminProcedure, createTRPCRouter } from "../trpc";
 
 export const fileRouter = createTRPCRouter({
@@ -11,11 +13,7 @@ export const fileRouter = createTRPCRouter({
 		)
 		.mutation(async ({ input }) => {
 			const key = `${crypto.randomUUID()}-${input.filename}`;
-			const uploadUrl = {}; // TODO
-
-			return {
-				key,
-				uploadUrl,
-			};
+			const uploadUrl = await getUploadUrl(key, input.contentType);
+			return { uploadUrl, key };
 		}),
 });
