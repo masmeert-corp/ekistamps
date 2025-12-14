@@ -119,7 +119,7 @@ export const publicProcedure = t.procedure.use(timingMiddleware);
  *
  * @see https://trpc.io/docs/procedures
  */
-export const protectedProcedure = t.procedure
+export const authenticatedProcedure = t.procedure
 	.use(timingMiddleware)
 	.use(({ ctx, next }) => {
 		if (!ctx.session?.user) {
@@ -132,3 +132,10 @@ export const protectedProcedure = t.procedure
 			},
 		});
 	});
+
+export const adminProcedure = authenticatedProcedure.use(({ ctx, next }) => {
+	if (ctx.session.user.role !== "admin") {
+		throw new TRPCError({ code: "FORBIDDEN" });
+	}
+	return next({ ctx });
+});
