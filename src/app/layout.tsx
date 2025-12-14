@@ -1,7 +1,6 @@
-import "@/styles/globals.css";
-
 import type { Metadata } from "next";
 
+import "@/styles/globals.css";
 import { TRPCReactProvider } from "@/trpc/react";
 
 export const metadata: Metadata = {
