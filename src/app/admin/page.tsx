@@ -1,7 +1,5 @@
+import { AdminDashboard } from "./_components/admin-dashboard";
+
 export default async function AdminDashboardPage() {
-	return (
-		<div>
-			<h1>Hello world</h1>
-		</div>
-	);
+	return <AdminDashboard />;
 }
