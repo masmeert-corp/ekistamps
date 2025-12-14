@@ -1,15 +1,16 @@
 "use client";
 
 import {
-	BubblesIcon,
 	type LucideIcon,
 	MessageSquareWarningIcon,
 	PlusCircleIcon,
 	Settings2Icon,
 	StampIcon,
-	TrainFrontIcon,
 	TrainTrackIcon,
 } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 import { Button } from "@/components/ui/button";
 import {
 	Sidebar,
@@ -32,17 +33,17 @@ type AdminSidebarNavigationItem = {
 const SIDEBAR_NAVIGATION_ITEMS: AdminSidebarNavigationItem[] = [
 	{
 		title: "Dashboard",
-		url: "#",
+		url: "/admin",
 		icon: Settings2Icon,
 	},
 	{
 		title: "Stamps",
-		url: "#",
+		url: "/admin/stamps",
 		icon: StampIcon,
 	},
 	{
 		title: "Reports",
-		url: "#",
+		url: "/admin/reports",
 		icon: MessageSquareWarningIcon,
 	},
 ];
@@ -52,6 +53,8 @@ function AdminSidebarContent({
 }: {
 	items: AdminSidebarNavigationItem[];
 }) {
+	const pathname = usePathname();
+
 	return (
 		<SidebarGroup>
 			<SidebarGroupContent className="flex flex-col gap-2">
@@ -75,14 +78,24 @@ function AdminSidebarContent({
 					</SidebarMenuItem>
 				</SidebarMenu>
 				<SidebarMenu>
-					{items.map((item) => (
-						<SidebarMenuItem key={item.title}>
-							<SidebarMenuButton tooltip={item.title}>
-								{item.icon && <item.icon />}
-								<span>{item.title}</span>
-							</SidebarMenuButton>
-						</SidebarMenuItem>
-					))}
+					{items.map((item) => {
+						const isActive = pathname === item.url;
+
+						return (
+							<SidebarMenuItem key={item.title}>
+								<SidebarMenuButton
+									asChild
+									isActive={isActive}
+									tooltip={item.title}
+								>
+									<Link href={item.url}>
+										{item.icon && <item.icon />}
+										<span>{item.title}</span>
+									</Link>
+								</SidebarMenuButton>
+							</SidebarMenuItem>
+						);
+					})}
 				</SidebarMenu>
 			</SidebarGroupContent>
 		</SidebarGroup>

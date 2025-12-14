@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { getSession } from "@/server/better-auth/server";
+import { AdminHeader } from "./_components/admin-header";
 import { AdminSidebar } from "./_components/admin-sidebar";
 
 export default async function AdminLayout({
@@ -19,7 +20,10 @@ export default async function AdminLayout({
 			}
 		>
 			<AdminSidebar variant="inset" />
-			<SidebarInset>{children}</SidebarInset>
+			<SidebarInset>
+				<AdminHeader />
+				{children}
+			</SidebarInset>
 		</SidebarProvider>
 	);
 }
