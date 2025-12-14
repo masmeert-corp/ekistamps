@@ -4,14 +4,12 @@ import {
 	type LucideIcon,
 	MessageSquareWarningIcon,
 	PlusCircleIcon,
-	Settings2Icon,
 	StampIcon,
 	TrainTrackIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { Button } from "@/components/ui/button";
 import {
 	Sidebar,
 	SidebarContent,
@@ -93,7 +91,11 @@ export function AdminSidebar({
 	...props
 }: React.ComponentProps<typeof Sidebar>) {
 	return (
-		<Sidebar collapsible="offcanvas" {...props}>
+		<Sidebar
+			collapsible="offcanvas"
+			{...props}
+			className="**:data-[sidebar=sidebar]:bg-linear-to-b **:data-[sidebar=sidebar]:from-rose-50 **:data-[sidebar=sidebar]:via-rose-50 **:data-[sidebar=sidebar]:to-orange-50"
+		>
 			<SidebarHeader>
 				<SidebarMenu>
 					<SidebarMenuItem>

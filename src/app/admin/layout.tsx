@@ -12,6 +12,7 @@ export default async function AdminLayout({
 
 	return (
 		<SidebarProvider
+			className="bg-linear-to-b from-rose-50 via-rose-50 to-orange-50"
 			style={
 				{
 					"--sidebar-width": "calc(var(--spacing) * 72)",
