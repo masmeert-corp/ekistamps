@@ -1,0 +1,15 @@
+{
+	"css.lint.unknownAtRules": "ignore",
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "biomejs.biome",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.biome": "always",
+		"source.organizeImports.biome": "always"
+	},
+
+	"files.exclude": {
+		"**/._*": true,
+		"node_modules/": true,
+		".next/": true
+	}
+}
